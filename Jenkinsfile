@@ -22,6 +22,7 @@ pipeline {
       steps {
         echo "Running mvn clean package..."
         bat 'mvn -B clean package'
+        bat 'docker pull alpine'
       }
     }
 
