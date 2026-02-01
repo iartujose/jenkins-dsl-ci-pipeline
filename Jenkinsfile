@@ -2,12 +2,12 @@ pipeline {
   agent any
 
   tools {
-    maven 'Maven3'    // must match the name you configured in Jenkins Global Tool Config
+    maven 'Maven'    // must match the name you configured in Jenkins Global Tool Config
   }
 
   environment {
     // Optional: DockerHub creds id (set in Jenkins credentials store), adjust as needed
-    DOCKER_CRED = 'dockerhub-creds'
+    DOCKER_CRED = 'dockerhub-cred'
     DOCKER_IMAGE = "raghavender5/jenkins-pipeline-demo:${env.BUILD_ID}"
   }
 
