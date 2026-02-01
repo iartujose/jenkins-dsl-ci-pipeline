@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker {
+    dockerContainer {
             image 'maven:3-alpine' // Uses an official Maven Docker image based on Alpine Linux
             args '-u root' // Optional: Run as root user to avoid permission issues with Jenkins workspace mounts, if necessary
         }
