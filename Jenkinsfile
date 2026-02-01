@@ -21,14 +21,14 @@ pipeline {
     stage('Build') {
       steps {
         echo "Running mvn clean package..."
-        sh 'mvn -B clean package'
+        bat 'mvn -B clean package'
       }
     }
 
     stage('Test') {
       steps {
         echo "Running tests..."
-        sh 'mvn -B test'
+        bat 'mvn -B test'
       }
       post {
         always {
