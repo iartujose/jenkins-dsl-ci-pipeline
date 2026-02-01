@@ -1,8 +1,9 @@
 pipeline {
   agent {
-    dockerContainer {
-            image 'maven:3-alpine' // Uses an official Maven Docker image based on Alpine Linux
-        }
+    any
+    //dockerContainer {
+    //        image 'maven:3-alpine' // Uses an official Maven Docker image based on Alpine Linux
+    //    }
   }
 
   tools {
@@ -56,11 +57,12 @@ pipeline {
       }
       steps {
         script {
-          withCredentials([usernamePassword(credentialsId: "${DOCKER_CRED}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-            sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-            sh "docker build -t ${DOCKER_IMAGE} ."
-            sh "docker push ${DOCKER_IMAGE}"
-          }
+          //withCredentials([usernamePassword(credentialsId: "${DOCKER_CRED}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+          //  sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+          //  sh "docker build -t ${DOCKER_IMAGE} ."
+          //  sh "docker push ${DOCKER_IMAGE}"
+          //}
+          echo "Building..."
         }
       }
     }
