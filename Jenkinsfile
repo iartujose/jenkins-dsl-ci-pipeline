@@ -70,9 +70,10 @@ pipeline {
     failure {
       echo "Build ${env.BUILD_ID} failed."
     }
-    always {
-      cleanWs()
-    }
+    
+    //always {
+    //  cleanWs()
+    //}
   }
 }
 
