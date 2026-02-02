@@ -27,16 +27,18 @@ pipeline {
     }
 
     stage('Test') {
+      
+      agent {
+        docker {
+          image 'maven:3.9.3-eclipse-temurin-17'
+          label 'my-defined-label'
+          args  '-v /tmp:/tmp'
+        }
+      }
+
       steps {
         echo "Running tests..."
         bat 'mvn -B test'
-
-        node {
-          docker.image('python:3.6.8-alpine').inside {
-            sh 'python --version'
-          }
-        }
-
       }
       //post {
       //  always {
