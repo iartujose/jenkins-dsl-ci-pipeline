@@ -31,7 +31,7 @@ pipeline {
         echo "Running tests..."
         bat 'mvn -B test'
 
-        nod e{
+        node {
           docker.image('python:3.6.8-alpine').inside {
             sh 'python --version'
           }
