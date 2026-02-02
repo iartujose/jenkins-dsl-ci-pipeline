@@ -12,6 +12,8 @@ RUN ls -la /app
 # Install python dependencies
 RUN python3 --version
 RUN pip3 install --upgrade pip
+RUN pip install --upgrade Flask Flask-Login Flask-WTF
+RUN pip install "Werkzeug<3.0.0"
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 RUN pip3 list --format=columns
 
